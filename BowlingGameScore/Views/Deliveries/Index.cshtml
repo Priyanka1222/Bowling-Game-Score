@@ -1,0 +1,80 @@
+﻿@model BowlingGameScore.Models.Deliverie
+
+<h4>Deliverie</h4>
+<hr />
+
+<form asp-action="Index">
+    <div class="controls">
+        <div class="row">
+            @for (int i = 0; i <= 9; i++)
+            {
+                if (i == 9)
+                {
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label asp-for="FirstDeliverie" class="control-label"></label>
+                            <input asp-for="@Model.Deliveries[i].FirstDeliverie" value="0" class="form-control" />
+                            <span asp-validation-for="@Model.Deliveries[i].FirstDeliverie" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label asp-for="SecondDeliverie" class="control-label"></label>
+                            <input type="text" asp-for="@Model.Deliveries[i].SecondDeliverie" value="0" class="form-control" />
+                            <span asp-validation-for="@Model.Deliveries[i].SecondDeliverie" class="text-danger"></span>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label asp-for="FirstDeliverie" class="control-label"></label>
+                            <input asp-for="@Model.Deliveries[i].FirstDeliverie" value="0" class="form-control" />
+                            <span asp-validation-for="@Model.Deliveries[i].FirstDeliverie" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group" id="second">
+                            <label asp-for="SecondDeliverie" class="control-label"></label>
+                            <input asp-for="@Model.Deliveries[i].SecondDeliverie" value="0" class="form-control" />
+                            <span asp-validation-for="@Model.Deliveries[i].SecondDeliverie" class="text-danger"></span>
+                        </div>
+                    </div>
+                }
+            }
+            <div class="col-sm-3">
+                <div class="form-group" id="showBonusDeliverie">
+                    <label asp-for="FirstDeliverie" class="control-label"></label>
+                    <input type="text" name="firstDeliverie" id="firstDeliverie" value="0" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group" id="showBonusDeliverie2">
+                    <label asp-for="SecondDeliverie" class="control-label"></label>
+                    <input type="text" name="secondDeliverie" id="secondDeliverie" value="0" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Message
+
+        </dd>
+    </dl>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
