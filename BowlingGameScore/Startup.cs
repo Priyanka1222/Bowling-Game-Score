@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Globalization;
-
+using BowlingGameScore.Interface;
 using BowlingGameScore.Models;
 
 using Microsoft.AspNetCore.Builder;
@@ -33,7 +33,7 @@ namespace BowlingGameScore
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddScoped<Deliverie>();
+            services.AddScoped<IDeliverie, Deliverie>();
             services.AddControllersWithViews();
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");

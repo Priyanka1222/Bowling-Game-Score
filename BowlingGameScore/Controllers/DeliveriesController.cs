@@ -1,6 +1,7 @@
 ﻿using System;
 
-using BowlingGameScore.Models;
+using BowlingGameScore.Interface;
+using BowlingGameScore.ViewModels;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
@@ -10,9 +11,9 @@ namespace BowlingGameScore.Controllers
 {
     public class DeliveriesController : Controller
     {
-        private readonly Deliverie _deliverie;
+        private readonly IDeliverie _deliverie;
 
-        public DeliveriesController(Deliverie deliverie)
+        public DeliveriesController(IDeliverie deliverie)
         {
             _deliverie = deliverie;
         }
@@ -24,7 +25,7 @@ namespace BowlingGameScore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(Deliverie model, int firstDeliverie, int secondDeliverie)
+        public IActionResult Index(DeliverieViewModel model, int firstDeliverie, int secondDeliverie)
         {
             for (int i = 0; i <= 9; i++)
             {
@@ -33,7 +34,6 @@ namespace BowlingGameScore.Controllers
 
             _deliverie.CheckForStrike();
             _deliverie.CheckForSpare();
-
 
             if (!firstDeliverie.Equals(null) || !secondDeliverie.Equals(null))
             {
