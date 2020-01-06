@@ -22,11 +22,11 @@ namespace BowlingGameScore.UnitTesting
         [TestCase(5, 5, 10)]
         [TestCase(3, 3, 6)]
         [TestCase(2, 2, 4)]
-        public void GivenDeliveries_WhenAddDeliveriesScore_ThenReturnExpectedResult(int FirstDeliverie, int SecondDeliverie, int result)
+        public void GivenDeliveries_WhenAddDeliveriesScore_ThenReturnExpectedResult(int firstDeliverie, int secondDeliverie, int result)
         {
             var deliverie = new Deliverie();
 
-            int score = deliverie.AddDeliveriesScore(FirstDeliverie, SecondDeliverie);
+            int score = deliverie.AddDeliveriesScore(firstDeliverie, secondDeliverie);
 
             Assert.That(score, Is.EqualTo(result));
         }
@@ -35,9 +35,9 @@ namespace BowlingGameScore.UnitTesting
         public void GivenFirstDeliverieOfTen_WhenAddStrike_ThenReturnTrue()
         {
             var deliverie = new Deliverie();
-            int FirstDeliverie = 10;
+            int firstDeliverie = 10;
 
-            bool value = deliverie.AddStrike(FirstDeliverie);
+            bool value = deliverie.AddStrike(firstDeliverie);
 
             Assert.That(value, Is.EqualTo(true));
         }
@@ -47,11 +47,11 @@ namespace BowlingGameScore.UnitTesting
         [TestCase(5)]
         [TestCase(3)]
         [TestCase(2)]
-        public void GivenFirstDeliverieOfNotTen_WhenAddStrike_ThenReturnFalse(int FirstDeliverie)
+        public void GivenFirstDeliverieOfNotTen_WhenAddStrike_ThenReturnFalse(int firstDeliverie)
         {
             var deliverie = new Deliverie();
 
-            bool value = deliverie.AddStrike(FirstDeliverie);
+            bool value = deliverie.AddStrike(firstDeliverie);
 
             Assert.That(value, Is.EqualTo(false));
         }
@@ -60,11 +60,11 @@ namespace BowlingGameScore.UnitTesting
         [TestCase(6, 4)]
         [TestCase(5, 5)]
         [TestCase(9, 1)]
-        public void GivenDeliveriesOfaTotalOfTen_WhenAddSpare_ThenReturnTrue(int FirstDeliverie, int SecondDeliverie)
+        public void GivenDeliveriesOfaTotalOfTen_WhenAddSpare_ThenReturnTrue(int firstDeliverie, int secondDeliverie)
         {
             var deliverie = new Deliverie();
 
-            bool value = deliverie.AddSpare(FirstDeliverie, SecondDeliverie);
+            bool value = deliverie.AddSpare(firstDeliverie, secondDeliverie);
 
             Assert.That(value, Is.EqualTo(true));
         }
@@ -73,11 +73,11 @@ namespace BowlingGameScore.UnitTesting
         [TestCase(6, 2)]
         [TestCase(1, 5)]
         [TestCase(4, 4)]
-        public void GivenDeliveriesOfaTotalOfNotTen_WhenAddSpare_ThenReturnFalse(int FirstDeliverie, int SecondDeliverie)
+        public void GivenDeliveriesOfaTotalOfNotTen_WhenAddSpare_ThenReturnFalse(int firstDeliverie, int secondDeliverie)
         {
             var deliverie = new Deliverie();
 
-            bool value = deliverie.AddSpare(FirstDeliverie, SecondDeliverie);
+            bool value = deliverie.AddSpare(firstDeliverie, secondDeliverie);
 
             Assert.That(value, Is.EqualTo(false));
         }
