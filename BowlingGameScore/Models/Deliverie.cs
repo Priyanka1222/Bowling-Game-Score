@@ -14,36 +14,36 @@ namespace BowlingGameScore.Models
         public bool Spare { get; set; }
         public IList<Deliverie> Deliveries { get; set; } = new List<Deliverie>();
 
-        public void AddDeliverie(int FirstDeliverie, int SecondDeliverie)
+        public void AddDeliverie(int firstDeliverie, int secondDeliverie)
         {
-            bool Strike = AddStrike(FirstDeliverie);
-            bool Spare = AddSpare(FirstDeliverie, SecondDeliverie);
+            bool strike = AddStrike(firstDeliverie);
+            bool spare = AddSpare(firstDeliverie, secondDeliverie);
             if (Strike == true)
             {
-                SecondDeliverie = 0;
+                secondDeliverie = 0;
             }
 
-            int Score = AddDeliveriesScore(FirstDeliverie, SecondDeliverie);
+            int score = AddDeliveriesScore(firstDeliverie, secondDeliverie);
 
             Deliveries.Add(new Deliverie()
             {
-                FirstDeliverie = FirstDeliverie,
-                SecondDeliverie = SecondDeliverie,
-                Score = Score,
-                Strike = Strike,
-                Spare = Spare
+                FirstDeliverie = firstDeliverie,
+                SecondDeliverie = secondDeliverie,
+                Score = score,
+                Strike = strike,
+                Spare = spare
             });
         }
 
-        public int AddDeliveriesScore(int FirstDeliverie, int SecondDeliverie)
+        public int AddDeliveriesScore(int firstDeliverie, int secondDeliverie)
         {
-            int Score = FirstDeliverie + SecondDeliverie;
-            return Score;
+            int score = firstDeliverie + secondDeliverie;
+            return score;
         }
 
-        public bool AddStrike(int FirstDeliverie)
+        public bool AddStrike(int firstDeliverie)
         {
-            if (FirstDeliverie == 10)
+            if (firstDeliverie == 10)
             {
                 return true;
             }
@@ -53,11 +53,11 @@ namespace BowlingGameScore.Models
             }
         }
 
-        public bool AddSpare(int FirstDeliverie, int SecondDeliverie)
+        public bool AddSpare(int firstDeliverie, int secondDeliverie)
         {
-            int Score = AddDeliveriesScore(FirstDeliverie, SecondDeliverie);
-            bool Strike = AddStrike(FirstDeliverie);
-            if (Score == 10 && Strike == false)
+            int score = AddDeliveriesScore(firstDeliverie, secondDeliverie);
+            bool strike = AddStrike(firstDeliverie);
+            if (score == 10 && strike == false)
             {
                 return true;
             }
@@ -99,21 +99,21 @@ namespace BowlingGameScore.Models
             }
         }
 
-        public void FinalStrike(int FirstDeliverie, int SecondDeliverie)
+        public void FinalStrike(int firstDeliverie, int secondDeliverie)
         {
-            int Score = AddDeliveriesScore(FirstDeliverie, SecondDeliverie);
+            int score = AddDeliveriesScore(firstDeliverie, secondDeliverie);
 
             if (Deliveries.LastOrDefault().Strike == true)
             {
-                Deliveries.LastOrDefault().Score += Score;
+                Deliveries.LastOrDefault().Score += score;
             }
         }
 
-        public void FinalSpare(int FirstDeliverie)
+        public void FinalSpare(int firstDeliverie)
         {
             if (Deliveries.LastOrDefault().Spare == true)
             {
-                Deliveries.LastOrDefault().Score += FirstDeliverie;
+                Deliveries.LastOrDefault().Score += firstDeliverie;
             }
         }
 

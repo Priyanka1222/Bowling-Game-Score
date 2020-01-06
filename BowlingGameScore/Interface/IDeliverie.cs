@@ -2,14 +2,14 @@
 {
     public interface IDeliverie
     {
-        void AddDeliverie(int FirstDeliverie, int SecondDeliverie);
-        int AddDeliveriesScore(int FirstDeliverie, int SecondDeliverie);
-        bool AddStrike(int FirstDeliverie);
-        bool AddSpare(int FirstDeliverie, int SecondDeliverie);
+        void AddDeliverie(int firstDeliverie, int secondDeliverie);
+        int AddDeliveriesScore(int firstDeliverie, int secondDeliverie);
+        bool AddStrike(int firstDeliverie);
+        bool AddSpare(int firstDeliverie, int secondDeliverie);
         void CheckForStrike();
         void CheckForSpare();
-        void FinalStrike(int FirstDeliverie, int SecondDeliverie);
-        void FinalSpare(int FirstDeliverie);
+        void FinalStrike(int firstDeliverie, int secondDeliverie);
+        void FinalSpare(int firstDeliverie);
         int FinalScore();
     }
 }

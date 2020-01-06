@@ -259,3 +259,4 @@ C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\bin\Debug
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\cy\BowlingGameScore.resources.dll
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_SetLanguagePartial.cshtml.g.cs
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\BowlingGameScore.Resources.ViewModels.DeliverieViewModel.cy.resources
+C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\BowlingGameScore.csprojAssemblyReference.cache
