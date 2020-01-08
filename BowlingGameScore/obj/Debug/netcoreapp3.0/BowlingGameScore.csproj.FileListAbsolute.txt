@@ -121,7 +121,6 @@ C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\BowlingGameScore.Views.pdb
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\BowlingGameScore.dll
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\BowlingGameScore.pdb
-C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\Razor\Views\Deliveries\Index.cshtml.g.cs
 C:\Users\PP\Source\Repos\BowlingGameScore\BowlingGameScore\bin\Debug\netcoreapp3.0\appsettings.Development.json
 C:\Users\PP\Source\Repos\BowlingGameScore\BowlingGameScore\bin\Debug\netcoreapp3.0\appsettings.json
 C:\Users\PP\Source\Repos\BowlingGameScore\BowlingGameScore\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
@@ -258,5 +257,6 @@ C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\bin\Debug\netcoreapp3.0\cy\BowlingGameScore.resources.dll
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\cy\BowlingGameScore.resources.dll
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_SetLanguagePartial.cshtml.g.cs
-C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\BowlingGameScore.Resources.ViewModels.DeliverieViewModel.cy.resources
+C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\Razor\Views\Users\Index.cshtml.g.cs
+C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\BowlingGameScore.Resources.ViewModels.UserViewModel.cy.resources
 C:\Users\priyanka.patel\source\repos\BowlingGameScore\BowlingGameScore\obj\Debug\netcoreapp3.0\BowlingGameScore.csprojAssemblyReference.cache

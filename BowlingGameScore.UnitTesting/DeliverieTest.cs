@@ -1,3 +1,5 @@
+using BowlingGameScore.DataLogic;
+using BowlingGameScore.Interface;
 using BowlingGameScore.Models;
 
 using NUnit.Framework;
@@ -6,15 +8,25 @@ namespace BowlingGameScore.UnitTesting
 {
     public class DeliverieTest
     {
+
+        private IUserLogic _result;
+        private User _user;
+
+        [SetUp]
+        public void Setup()
+        {
+            _user = new User();
+            _result = new UserLogic(_user);
+        }
+
         [Test]
         public void GivenDeliverie_WhenAddDeliveries_ThenReturnListOfDeliveries()
         {
-            var deliverieResult = new Deliverie();
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(4, 0);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(4, 0);
 
-            Assert.That(deliverieResult.Deliveries.Count, Is.EqualTo(3));
+            Assert.That(_user.Frames.Count, Is.EqualTo(3));
         }
 
         [Test]
@@ -24,9 +36,7 @@ namespace BowlingGameScore.UnitTesting
         [TestCase(2, 2, 4)]
         public void GivenDeliveries_WhenAddDeliveriesScore_ThenReturnExpectedResult(int firstDeliverie, int secondDeliverie, int result)
         {
-            var deliverie = new Deliverie();
-
-            int score = deliverie.AddDeliveriesScore(firstDeliverie, secondDeliverie);
+            int score = _result.AddDeliveryScore(firstDeliverie, secondDeliverie);
 
             Assert.That(score, Is.EqualTo(result));
         }
@@ -34,12 +44,11 @@ namespace BowlingGameScore.UnitTesting
         [Test]
         public void GivenFirstDeliverieOfTen_WhenAddStrike_ThenReturnTrue()
         {
-            var deliverie = new Deliverie();
             int firstDeliverie = 10;
 
-            bool value = deliverie.AddStrike(firstDeliverie);
+            bool value = _result.AddStrike(firstDeliverie);
 
-            Assert.That(value, Is.EqualTo(true));
+            Assert.IsTrue(value);
         }
 
         [Test]
@@ -49,11 +58,9 @@ namespace BowlingGameScore.UnitTesting
         [TestCase(2)]
         public void GivenFirstDeliverieOfNotTen_WhenAddStrike_ThenReturnFalse(int firstDeliverie)
         {
-            var deliverie = new Deliverie();
+            bool value = _result.AddStrike(firstDeliverie);
 
-            bool value = deliverie.AddStrike(firstDeliverie);
-
-            Assert.That(value, Is.EqualTo(false));
+            Assert.IsFalse(value);
         }
 
         [Test]
@@ -62,11 +69,9 @@ namespace BowlingGameScore.UnitTesting
         [TestCase(9, 1)]
         public void GivenDeliveriesOfaTotalOfTen_WhenAddSpare_ThenReturnTrue(int firstDeliverie, int secondDeliverie)
         {
-            var deliverie = new Deliverie();
+            bool value = _result.AddSpare(firstDeliverie, secondDeliverie);
 
-            bool value = deliverie.AddSpare(firstDeliverie, secondDeliverie);
-
-            Assert.That(value, Is.EqualTo(true));
+            Assert.IsTrue(value);
         }
 
         [Test]
@@ -75,78 +80,71 @@ namespace BowlingGameScore.UnitTesting
         [TestCase(4, 4)]
         public void GivenDeliveriesOfaTotalOfNotTen_WhenAddSpare_ThenReturnFalse(int firstDeliverie, int secondDeliverie)
         {
-            var deliverie = new Deliverie();
+            bool value = _result.AddSpare(firstDeliverie, secondDeliverie);
 
-            bool value = deliverie.AddSpare(firstDeliverie, secondDeliverie);
-
-            Assert.That(value, Is.EqualTo(false));
+            Assert.IsFalse(value);
         }
 
         [Test]
         public void GivenStrike_CheckForStrike_ThenReturnExpectedResult()
         {
-            var deliverieResult = new Deliverie();
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(10, 0);
-            deliverieResult.AddDeliverie(1, 1);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(10, 0);
+            _result.AddDelivery(1, 1);
 
-            deliverieResult.CheckForStrike();
+            _result.CheckForStrike();
 
-            Assert.AreEqual(deliverieResult.Deliveries[1].Score, 12);
+            Assert.AreEqual(_user.Frames[1].Score, 12);
         }
 
         [Test]
         public void GivenSpare_CheckForSpare_ThenReturnExpectedResult()
         {
-            var deliverieResult = new Deliverie();
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(5, 5);
-            deliverieResult.AddDeliverie(1, 1);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(5, 5);
+            _result.AddDelivery(1, 1);
 
-            deliverieResult.CheckForSpare();
+            _result.CheckForSpare();
 
-            Assert.AreEqual(deliverieResult.Deliveries[1].Score, 11);
+            Assert.AreEqual(_user.Frames[1].Score, 11);
         }
 
         [Test]
         public void GivenFinalStrike_FinalStrike_ThenReturnExpectedResult()
         {
-            var deliverieResult = new Deliverie();
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(10, 0);
-     
-            deliverieResult.FinalStrike(1, 2);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(10, 0);
 
-            Assert.AreEqual(deliverieResult.Deliveries[2].Score, 13);
+            _result.FinalStrike(1, 2);
+
+            Assert.AreEqual(_user.Frames[2].Score, 13);
         }
 
         [Test]
         public void GivenFinalSpare_FinalSpare_ThenReturnExpectedResult()
         {
-            var deliverieResult = new Deliverie();
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(5, 5);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(5, 5);
 
-            deliverieResult.FinalSpare(1);
+            _result.FinalSpare(1);
 
-            Assert.AreEqual(deliverieResult.Deliveries[2].Score, 11);
+            Assert.AreEqual(_user.Frames[2].Score, 11);
         }
 
         [Test]
         public void GivenDeliverie_FinalScore_ThenReturnFinalScore()
         {
-            var deliverieResult = new Deliverie();
-            deliverieResult.AddDeliverie(1, 1);
-            deliverieResult.AddDeliverie(10, 0);
-            deliverieResult.AddDeliverie(1, 2);
-            deliverieResult.AddDeliverie(5, 5);
+            _result.AddDelivery(1, 1);
+            _result.AddDelivery(10, 0);
+            _result.AddDelivery(1, 2);
+            _result.AddDelivery(5, 5);
 
-            deliverieResult.CheckForStrike();
-            deliverieResult.CheckForSpare();
+            _result.CheckForStrike();
+            _result.CheckForSpare();
 
-            Assert.AreEqual(deliverieResult.FinalScore(), 28);
+            Assert.AreEqual(_result.FinalScore(), 28);
         }
     }
 }

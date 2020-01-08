@@ -1,4 +1,4 @@
-﻿@model BowlingGameScore.ViewModels.DeliverieViewModel
+﻿@model BowlingGameScore.ViewModels.UserViewModel
 <h4>Frames</h4>
 <hr />
 
@@ -11,16 +11,16 @@
                 {
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label asp-for="FirstDeliverie" class="control-label"></label>
-                            <input asp-for="@Model.Deliveries[i].FirstDeliverie" value="0" class="form-control" />
-                            <span asp-validation-for="@Model.Deliveries[i].FirstDeliverie" class="text-danger"></span>
+                            <label asp-for="FirstDelivery" class="control-label"></label>
+                            <input asp-for="@Model.Frames[i].FirstDelivery" value="0" class="form-control" />
+                            <span asp-validation-for="@Model.Frames[i].FirstDelivery" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label asp-for="SecondDeliverie" class="control-label"></label>
-                            <input type="text" asp-for="@Model.Deliveries[i].SecondDeliverie" value="0" class="form-control" />
-                            <span asp-validation-for="@Model.Deliveries[i].SecondDeliverie" class="text-danger"></span>
+                            <label asp-for="SecondDelivery" class="control-label"></label>
+                            <input type="text" asp-for="@Model.Frames[i].SecondDelivery" value="0" class="form-control" />
+                            <span asp-validation-for="@Model.Frames[i].SecondDelivery" class="text-danger"></span>
                         </div>
                     </div>
                 }
@@ -28,29 +28,29 @@
                 {
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label asp-for="FirstDeliverie" class="control-label"></label>
-                            <input asp-for="@Model.Deliveries[i].FirstDeliverie" value="0" class="form-control" />
-                            <span asp-validation-for="@Model.Deliveries[i].FirstDeliverie" class="text-danger"></span>
+                            <label asp-for="FirstDelivery" class="control-label"></label>
+                            <input asp-for="@Model.Frames[i].FirstDelivery" value="0" class="form-control" />
+                            <span asp-validation-for="@Model.Frames[i].FirstDelivery" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group" id="second">
-                            <label asp-for="SecondDeliverie" class="control-label"></label>
-                            <input asp-for="@Model.Deliveries[i].SecondDeliverie" value="0" class="form-control" />
-                            <span asp-validation-for="@Model.Deliveries[i].SecondDeliverie" class="text-danger"></span>
+                            <label asp-for="SecondDelivery" class="control-label"></label>
+                            <input asp-for="@Model.Frames[i].SecondDelivery" value="0" class="form-control" />
+                            <span asp-validation-for="@Model.Frames[i].SecondDelivery" class="text-danger"></span>
                         </div>
                     </div>
                 }
             }
             <div class="col-sm-3">
                 <div class="form-group" id="showBonusDeliverie">
-                    <label asp-for="FirstDeliverie" class="control-label"></label>
+                    <label asp-for="FirstDelivery" class="control-label"></label>
                     <input type="text" name="firstDeliverie" id="firstDeliverie" value="0" class="form-control">
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group" id="showBonusDeliverie2">
-                    <label asp-for="SecondDeliverie" class="control-label"></label>
+                    <label asp-for="SecondDelivery" class="control-label"></label>
                     <input type="text" name="secondDeliverie" id="secondDeliverie" value="0" class="form-control">
                 </div>
             </div>
@@ -68,8 +68,7 @@
             @Html.DisplayNameFor(model => model.Score)
         </dt>
         <dd class="col-sm-10">
-            @ViewBag.Message
-
+            @Html.DisplayFor(model => model.FinalScore)
         </dd>
     </dl>
 </div>

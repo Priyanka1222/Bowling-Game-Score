@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="First Deliverie" xml:space="preserve">
+  <data name="First Delivery" xml:space="preserve">
     <value>Yn gyntaf Deliverie</value>
   </data>
   <data name="Score" xml:space="preserve">
     <value>Sgôr</value>
   </data>
-  <data name="Second Deliverie" xml:space="preserve">
+  <data name="Second Delivery" xml:space="preserve">
     <value>Ail Deliverie</value>
   </data>
   <data name="The field First Deliverie must be between 0 and 10." xml:space="preserve">

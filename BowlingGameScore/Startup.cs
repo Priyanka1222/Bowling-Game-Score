@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Globalization;
+
+using BowlingGameScore.DataLogic;
 using BowlingGameScore.Interface;
 using BowlingGameScore.Models;
 
@@ -33,7 +35,9 @@ namespace BowlingGameScore
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddScoped<IDeliverie, Deliverie>();
+            services.AddScoped<IUserLogic, UserLogic>();
+            services.AddScoped<User>();
+
             services.AddControllersWithViews();
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -74,21 +78,17 @@ namespace BowlingGameScore
             app.UseHttpsRedirection();
 
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-            app.UseRequestLocalization(options.Value);
+            app.UseRequestLocalization(options.Value)
+            .UseCookiePolicy()
+            .UseStaticFiles()
+            .UseRouting()
+            .UseAuthorization()
 
-            app.UseCookiePolicy();
-
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            .UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Deliveries}/{action=Index}/{id?}");
+                    pattern: "{controller=Users}/{action=Index}/{id?}");
             });
         }
     }

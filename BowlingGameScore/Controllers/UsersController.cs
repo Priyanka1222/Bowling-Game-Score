@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BowlingGameScore.Controllers
 {
-    public class DeliveriesController : Controller
+    public class UsersController : Controller
     {
-        private readonly IDeliverie _deliverie;
+        private readonly IUserLogic _deliverie;
 
-        public DeliveriesController(IDeliverie deliverie)
+        public UsersController(IUserLogic deliverie)
         {
             _deliverie = deliverie;
         }
@@ -25,23 +25,9 @@ namespace BowlingGameScore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(DeliverieViewModel model, int firstDeliverie, int secondDeliverie)
+        public IActionResult Index(UserViewModel model, int firstDelivery, int secondDelivery)
         {
-            for (int i = 0; i <= 9; i++)
-            {
-                _deliverie.AddDeliverie(model.Deliveries[i].FirstDeliverie, model.Deliveries[i].SecondDeliverie);
-            }
-
-            _deliverie.CheckForStrike();
-            _deliverie.CheckForSpare();
-
-            if (!firstDeliverie.Equals(null) || !secondDeliverie.Equals(null))
-            {
-                _deliverie.FinalStrike(firstDeliverie, secondDeliverie);
-                _deliverie.FinalSpare(firstDeliverie);
-            }
-
-            ViewBag.Message = _deliverie.FinalScore();
+            _deliverie.SetGame(model, firstDelivery, secondDelivery);
 
             return View(model);
         }
