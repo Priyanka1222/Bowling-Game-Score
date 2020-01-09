@@ -20,7 +20,7 @@ namespace BowlingGameScore.DataLogic
             bool strike = AddStrike(firstDelivery);
             bool spare = AddSpare(firstDelivery, secondDelivery);
             int score = AddDeliveryScore(firstDelivery, secondDelivery);
-
+        
             _context.Frames.Add(new Frame()
             {
                 FirstDelivery = firstDelivery,
@@ -29,6 +29,12 @@ namespace BowlingGameScore.DataLogic
                 Strike = strike,
                 Spare = spare
             });
+        }
+
+        public int AddframeCount()
+        {
+            int frameCount = _context.Frames.Count;
+            return frameCount;
         }
 
         public int AddDeliveryScore(int firstDelivery, int secondDelivery)
@@ -113,7 +119,8 @@ namespace BowlingGameScore.DataLogic
         {
             for (int i = 0; i <= 9; i++)
             {
-                AddDelivery(model.Frames[i].FirstDelivery, model.Frames[i].SecondDelivery);
+                AddDelivery(model.Frames[i].FirstDelivery, model.Frames[i].SecondDelivery); 
+                model.Frames[i].FrameCount = AddframeCount();
             }
 
             CheckForStrike();

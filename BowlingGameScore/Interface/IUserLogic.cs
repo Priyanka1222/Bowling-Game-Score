@@ -13,5 +13,6 @@ namespace BowlingGameScore.Interface
         void FinalStrike(int firstDelivery, int secondDelivery);
         void FinalSpare(int firstDelivery);
         void SetGame(UserViewModel model, int firstDelivery, int secondDelivery);
+        int AddframeCount();
     }
 }

@@ -60,6 +60,24 @@
         </div>
     </div>
 </form>
+@for (int i = 0; i <= 9; i++)
+{
+<div class="col-sm-3">
+    @Html.DisplayNameFor(model => model.FrameCount)
+    @Html.DisplayFor(model => model.Frames[i].FrameCount)
+</div>
+    @*<div class="col-sm-3">
+        @Html.DisplayNameFor(model => model.FirstDelivery)
+        @Html.DisplayFor(model => model.Frames[i].FirstDelivery)
+    </div>
+    <div class="col-sm-3">
+        @Html.DisplayNameFor(model => model.SecondDelivery)
+        @Html.DisplayFor(model => model.Frames[i].SecondDelivery)
+    </div>*@
+}
+
+
+
 
 <div>
     <hr />

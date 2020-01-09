@@ -16,6 +16,7 @@ namespace BowlingGameScore.ViewModels
         [Display(Name = "Score")]
         public int Score { get; set; }
         public int FinalScore { get; set; }
+        public int FrameCount { get; set; }
         public IList<UserViewModel> Frames { get; set; } = new List<UserViewModel>();
     }
 }
