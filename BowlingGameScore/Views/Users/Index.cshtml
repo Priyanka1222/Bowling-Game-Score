@@ -2,6 +2,48 @@
 <h4>Frames</h4>
 <hr />
 
+<table>
+    <tr>
+        @for (int i = 0; i <= 9; i++)
+        {
+            <th colspan="2">Frame @Html.DisplayFor(model => model.Frames[i].FrameCount)</th>
+        }
+    </tr>
+    <tr>
+        @for (int i = 0; i <= 9; i++)
+        {
+            <td>
+                @Html.DisplayFor(model => model.Frames[i].FirstDelivery)
+            </td>
+            <td>
+                <h4>
+                    @Html.DisplayFor(model => model.Frames[i].StrikeSymbols)
+                    @Html.DisplayFor(model => model.Frames[i].SpareSymbols)
+                 </h4>
+                 @Html.DisplayFor(model => model.Frames[i].SecondDelivery)
+            </td>
+        }
+    </tr>
+    <tr>
+        @for (int i = 0; i <= 9; i++)
+        {
+            <td colspan="2">@Html.DisplayFor(model => model.Frames[i].Score)</td>
+        }
+    </tr>
+</table>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FinalScore)
+        </dd>
+    </dl>
+</div>
+
 <form asp-action="Index">
     <div class="controls">
         <div class="row">
@@ -43,53 +85,17 @@
                 }
             }
             <div class="col-sm-3">
-                <div class="form-group" id="showBonusDeliverie">
+                <div class="form-group" id="showBonusDelivery">
                     <label asp-for="FirstDelivery" class="control-label"></label>
-                    <input type="text" name="firstDeliverie" id="firstDeliverie" value="0" class="form-control">
+                    <input type="text" name="firstDelivery" id="firstDelivery" value="0" class="form-control">
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="form-group" id="showBonusDeliverie2">
-                    <label asp-for="SecondDelivery" class="control-label"></label>
-                    <input type="text" name="secondDeliverie" id="secondDeliverie" value="0" class="form-control">
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-primary" />
-            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
         </div>
     </div>
 </form>
-@for (int i = 0; i <= 9; i++)
-{
-<div class="col-sm-3">
-    @Html.DisplayNameFor(model => model.FrameCount)
-    @Html.DisplayFor(model => model.Frames[i].FrameCount)
-</div>
-    @*<div class="col-sm-3">
-        @Html.DisplayNameFor(model => model.FirstDelivery)
-        @Html.DisplayFor(model => model.Frames[i].FirstDelivery)
-    </div>
-    <div class="col-sm-3">
-        @Html.DisplayNameFor(model => model.SecondDelivery)
-        @Html.DisplayFor(model => model.Frames[i].SecondDelivery)
-    </div>*@
-}
-
-
-
-
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Score)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FinalScore)
-        </dd>
-    </dl>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

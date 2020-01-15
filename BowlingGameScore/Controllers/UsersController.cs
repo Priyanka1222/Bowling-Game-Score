@@ -11,11 +11,11 @@ namespace BowlingGameScore.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly IUserLogic _deliverie;
+        private readonly IUserLogic _delivery;
 
-        public UsersController(IUserLogic deliverie)
+        public UsersController(IUserLogic delivery)
         {
-            _deliverie = deliverie;
+            _delivery = delivery;
         }
 
         public IActionResult Index()
@@ -27,7 +27,7 @@ namespace BowlingGameScore.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(UserViewModel model, int firstDelivery, int secondDelivery)
         {
-            _deliverie.SetGame(model, firstDelivery, secondDelivery);
+            _delivery.SetGame(model, firstDelivery, secondDelivery);
 
             return View(model);
         }

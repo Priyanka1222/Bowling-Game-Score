@@ -6,9 +6,8 @@ using NUnit.Framework;
 
 namespace BowlingGameScore.UnitTesting
 {
-    public class DeliverieTest
+    public class UserTest
     {
-
         private IUserLogic _result;
         private User _user;
 
@@ -145,6 +144,44 @@ namespace BowlingGameScore.UnitTesting
             _result.CheckForSpare();
 
             Assert.AreEqual(_result.FinalScore(), 28);
+        }
+
+        [Test]
+        public void GivenFrames_AddFrameCount_ThenReturnFrameCount()
+        {
+            _result.AddDelivery(10, 0);
+            _result.AddDelivery(5, 5);
+            _result.AddDelivery(1, 0);
+            _result.AddDelivery(10, 0);
+
+            Assert.AreEqual(_result.AddFrameCount(), 4);
+        }
+
+        [Test]
+        public void GivenAllStrike_AllStrike_ThenReturnTrue()
+        {
+            _result.AddDelivery(10, 0);
+            _result.AddDelivery(10, 0);
+            _result.AddDelivery(10, 0);
+            _result.AddDelivery(10, 0);
+
+            _result.CheckForStrike();
+
+            Assert.IsTrue(_result.AllStrike());
+        }
+
+        [Test]
+        public void GivenNotAllStrike_AllStrike_ThenReturnFalse()
+        {
+            _result.AddDelivery(10, 0);
+            _result.AddDelivery(5, 5);
+            _result.AddDelivery(1, 0);
+            _result.AddDelivery(10, 0);
+
+            _result.CheckForStrike();
+            _result.CheckForSpare();
+
+            Assert.IsFalse(_result.AllStrike());
         }
     }
 }

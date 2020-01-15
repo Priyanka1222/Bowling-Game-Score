@@ -1,9 +1,9 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-#showBonusDeliverie {
+#showBonusDelivery {
     visibility: hidden;
 }
-#showBonusDeliverie2 {
+#showBonusDelivery2 {
     visibility: hidden;
 }
 
@@ -11,6 +11,28 @@ for details on configuring this project to bundle and minify static web assets. 
     visibility: visible;
 }
 
+table, th, td {
+    display: flex;
+    border-radius: 6px;
+    border: 1px solid #a7a7a7;
+    border-collapse: separate;
+    width: 60vh;
+    height: 10vh; 
+}
+
+th, td {
+  
+    text-align: center;
+    color: #808080;
+}
+
+th {
+    color: #313131;
+}
+
+h4{
+    padding: 5%;
+}
 
 
 a.navbar-brand {

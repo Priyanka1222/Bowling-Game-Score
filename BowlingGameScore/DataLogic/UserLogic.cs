@@ -31,12 +31,6 @@ namespace BowlingGameScore.DataLogic
             });
         }
 
-        public int AddframeCount()
-        {
-            int frameCount = _context.Frames.Count;
-            return frameCount;
-        }
-
         public int AddDeliveryScore(int firstDelivery, int secondDelivery)
         {
             int score = firstDelivery + secondDelivery;
@@ -110,9 +104,24 @@ namespace BowlingGameScore.DataLogic
             }
         }
 
+        public bool AllStrike()
+        {
+            if (_context.Frames.All(t => t.Strike == true))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public int FinalScore()
         {
             return _context.Frames.Sum(x => x.Score);
+        }
+
+        public int AddFrameCount()
+        {
+            int frameCount = _context.Frames.Count;
+            return frameCount;
         }
 
         public void SetGame(UserViewModel model, int firstDelivery, int secondDelivery)
@@ -120,7 +129,21 @@ namespace BowlingGameScore.DataLogic
             for (int i = 0; i <= 9; i++)
             {
                 AddDelivery(model.Frames[i].FirstDelivery, model.Frames[i].SecondDelivery); 
-                model.Frames[i].FrameCount = AddframeCount();
+                model.Frames[i].FrameCount = AddFrameCount();
+
+                if (_context.Frames[i].Strike == true)
+                {
+                    model.Frames[i].StrikeSymbols = "X";
+                    model.Frames[i].ShowSymbols = true;
+                }
+
+                if (_context.Frames[i].Spare == true)
+                {
+                    model.Frames[i].SpareSymbols = "-";
+                    model.Frames[i].ShowSymbols = true;
+                }
+
+                model.Frames[i].Score = _context.Frames[i].Score;
             }
 
             CheckForStrike();
@@ -129,10 +152,18 @@ namespace BowlingGameScore.DataLogic
             if (!firstDelivery.Equals(null) || !secondDelivery.Equals(null))
             {
                 FinalStrike(firstDelivery, secondDelivery);
-                FinalSpare(firstDelivery);
+
+                model.Frames[9].Score = _context.Frames[9].Score;
             }
 
-            model.FinalScore = FinalScore();
+            if (AllStrike() == true)
+            {
+                model.FinalScore = 300;
+            }
+            else
+            { 
+                model.FinalScore = FinalScore();
+            }
         }
     }
 }

@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="First Delivery" xml:space="preserve">
-    <value>Yn gyntaf Deliverie</value>
+    <value>Yn gyntaf Delivery</value>
   </data>
   <data name="Score" xml:space="preserve">
     <value>Sgôr</value>
   </data>
   <data name="Second Delivery" xml:space="preserve">
-    <value>Ail Deliverie</value>
+    <value>Ail Delivery</value>
   </data>
-  <data name="The field First Deliverie must be between 0 and 10." xml:space="preserve">
-    <value>Rhaid i'r maes Yn gyntaf Deliverie fod rhwng 0 a 10.</value>
+  <data name="The field First Delivery must be between 0 and 10." xml:space="preserve">
+    <value>Rhaid i'r maes Yn gyntaf Delivery fod rhwng 0 a 10.</value>
   </data>
-  <data name="The field Second Deliverie must be between 0 and 10." xml:space="preserve">
-    <value>Rhaid i'r maes Ail Deliverie fod rhwng 0 a 10.</value>
+  <data name="The field Second Delivery must be between 0 and 10." xml:space="preserve">
+    <value>Rhaid i'r maes Ail Delivery fod rhwng 0 a 10.</value>
   </data>
-  <data name="The First Deliverie field is required." xml:space="preserve">
-    <value>Yn gyntaf Deliverie yn ofynnol.</value>
+  <data name="The First Delivery field is required." xml:space="preserve">
+    <value>Yn gyntaf Delivery yn ofynnol.</value>
   </data>
-  <data name="The Second Deliverie field is required." xml:space="preserve">
-    <value>Ail Deliverie yn ofynnol.</value>
+  <data name="The Second Delivery field is required." xml:space="preserve">
+    <value>Ail Delivery yn ofynnol.</value>
   </data>
 </root>

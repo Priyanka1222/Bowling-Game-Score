@@ -1,24 +1,22 @@
-﻿var bonusDeliverie = document.getElementById('Deliveries_9__FirstDeliverie');
-var bonusDeliverie2 = document.getElementById('Deliveries_9__SecondDeliverie');
+﻿var bonusDelivery = document.getElementById('Frames_9__FirstDelivery');
+var bonusDelivery2 = document.getElementById('Frames_9__SecondDelivery');
 
-var showBonusDeliverie = document.getElementById('showBonusDeliverie');
-var showBonusDeliverie2 = document.getElementById('showBonusDeliverie2');
+var showBonusDelivery = document.getElementById('showBonusDelivery');
 
-var addFirstDeliverie = [];
+var addFirstDelivery = [];
 
 for (var i = 0; i <= 9; i++) {
-    addFirstDeliverie[i] = document.getElementById("Deliveries_" + i + "__FirstDeliverie");
+    addFirstDelivery[i] = document.getElementById("Frames_" + i + "__FirstDelivery");
 }
 
-function Deliverie() {
+function Delivery() {
     for (var i = 0; i <= 9; i++) {
 
-        var firstDeliverie = addFirstDeliverie[i].value;
+        var firstDelivery = addFirstDelivery[i].value;
 
-        if (firstDeliverie == 10) {
+        if (firstDelivery == 10) {
 
             second[i].style.visibility = 'hidden';
-            SecondDeliverie = 0;
         }
         else {
             second[i].style.visibility = 'visible';
@@ -27,32 +25,27 @@ function Deliverie() {
 }
 
 for (var i = 0; i <= 9; i++) {
-    addFirstDeliverie[i].onchange = Deliverie;
-    addFirstDeliverie[i].onblur = Deliverie;
+    addFirstDelivery[i].onchange = Delivery;
+    addFirstDelivery[i].onblur = Delivery;
 }
 
-function useBonusDeliverie() {
+function useBonusDelivery() {
 
-    var firstDeliverie = bonusDeliverie.value;
-    var secondDeliverie = bonusDeliverie2.value;
+    var firstDelivery = bonusDelivery.value;
+    var secondDelivery = bonusDelivery2.value;
 
 
-    var totalScore = Number(firstDeliverie) + Number(secondDeliverie);
+    var totalScore = Number(firstDelivery) + Number(secondDelivery);
 
-    if (firstDeliverie == 10) {
-        showBonusDeliverie.style.visibility = 'visible';
-        showBonusDeliverie2.style.visibility = 'visible';
+    if (firstDelivery == 10) {
+        showBonusDelivery.style.visibility = 'visible';
     }
     else if (totalScore == 10) {
-        showBonusDeliverie.style.visibility = 'visible';
+        showBonusDelivery.style.visibility = 'visible';
     }
     else {
-        showBonusDeliverie.style.visibility = 'hidden';
-        showBonusDeliverie2.style.visibility = 'hidden';
+        showBonusDelivery.style.visibility = 'hidden';
     }
 }
-bonusDeliverie.onchange = useBonusDeliverie;
-bonusDeliverie.onblur = useBonusDeliverie;
-
-bonusDeliverie2.onchange = useBonusDeliverie;
-bonusDeliverie2.onblur = useBonusDeliverie;
+bonusDelivery.onchange = useBonusDelivery;
+bonusDelivery.onblur = useBonusDelivery;
